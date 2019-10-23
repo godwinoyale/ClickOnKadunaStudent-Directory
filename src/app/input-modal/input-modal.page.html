@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title style="color:blueviolet">Insert Student's Record</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+<!-- Item Inset Lines -->
+<ion-item lines="inset">
+  <!-- Input with placeholder -->
+<ion-input placeholder="Enter Name" [(ngModel)]="user.name"></ion-input>
+</ion-item>
+<ion-item lines="inset">
+<ion-input placeholder="Enter Email" [(ngModel)]="user.email"></ion-input>
+</ion-item>
+<ion-item lines="inset">
+<ion-input placeholder="Enter Phone" [(ngModel)]="user.phone"></ion-input>
+</ion-item>
+<ion-item lines="inset">
+<ion-label>Select Stream</ion-label>
+<ion-select value="programming" okText="Okay" cancelText="Dismiss" [(ngModel)]="user.stream">
+  <ion-select-option value="Programming & Tech">Programming & Tech</ion-select-option>
+  <ion-select-option value="Digital Marketing">Digital Marketing</ion-select-option>
+</ion-select>
+</ion-item>
+<ion-item>
+  <ion-label lines="inset">Gender</ion-label>
+  <ion-select placeholder="Select One" [(ngModel)]="user.gender">
+    <ion-select-option value="Female">Female</ion-select-option>
+    <ion-select-option value="Male">Male</ion-select-option>
+  </ion-select>
+</ion-item>
+
+<ion-item lines="inset">
+  <ion-textarea placeholder="About" [(ngModel)]="user.about"></ion-textarea>
+</ion-item>
+<ion-item lines="inset">
+  <ion-textarea placeholder="Experience" [(ngModel)]="user.experience"></ion-textarea>
+</ion-item>
+
+<ion-button expand="block" *ngIf="!userID" (click)="save()">Add Student</ion-button>
+<ion-button expand="block" color="warning" *ngIf="userID" (click)="update()">Update</ion-button>
+<ion-button expand="block" color="danger" (click)="closeModal()">Close Modal</ion-button>
+
+</ion-content>
